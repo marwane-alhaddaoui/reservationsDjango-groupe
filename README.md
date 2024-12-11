@@ -1,9 +1,10 @@
 # reservationsDjango-groupe
 
 ## Membres du groupe
+- AHAKEU KHYYAT Nabil
 - AL HADDAOUI Marwane
-- BARRY Hawa
+- AMANKOUR Mohamed
 - BOUDOUH Jaber
-- EL AMRATI Salim
-- KUATE Joel P.
-- MINHAS Mohammad A.
+- BOUNOU Khalid
+- GAMA CORREIA SOARES BORGES Sergio
+- YAMANI Mehdi
