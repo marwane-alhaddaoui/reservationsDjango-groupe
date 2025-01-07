@@ -18,6 +18,9 @@ urlpatterns = [
         views.artist.delete,
         name='artist-delete'),
     path('admin/', admin.site.urls),
+    path('type/', views.type.index, name='type-index'),
+    path('type/<int:type_id>', views.type.show, name='type-show'),
+
 ]
 
 admin.site.index_title = "Projet Réservations"
