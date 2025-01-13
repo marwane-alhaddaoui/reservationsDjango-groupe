@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Artist, Locality, Location, Price, Reservation, Show, Type
+from .models import Artist, Locality, Location, Price, Reservation, Show, Type, ArtisteType, Representation, RepresentationReservation, Review
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
@@ -13,6 +13,11 @@ admin.site.register(Price)
 admin.site.register(Reservation)
 admin.site.register(Show)
 admin.site.register(Type)
+admin.site.register(ArtisteType)
+admin.site.register(Representation)
+admin.site.register(RepresentationReservation)
+admin.site.register(Review)
+
 
 # Define an inline admin descriptor for Employee model
 # which acts a bit like a singleton
