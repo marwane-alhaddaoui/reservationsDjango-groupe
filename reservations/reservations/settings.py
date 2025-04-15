@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-4ies4(4ux=ag-e@%b)_mtmt=g1@*qihh+&s^p*y42nbmrf4uba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['reservations-icc.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app']
 
 
 # Application definition
@@ -87,14 +87,16 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'reservations',
-        'USER': 'root',
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        'NAME': 'railway',  # Nom de la base de données
+        'USER': 'root',  # Utilisateur
+        'PASSWORD': 'MJBzBvaeeHpbFIHKoZWqwHjrFpIHutid',  # Mot de passe
+        'HOST': 'switchyard.proxy.rlwy.net',  # Hôte de la base de données
+        'PORT': '20330',  # Port
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
