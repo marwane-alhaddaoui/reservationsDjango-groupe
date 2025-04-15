@@ -4,6 +4,14 @@
 
 {% block content %}
 <h2>{{ artist.firstname }} {{ artist.lastname }}</h2>
+<h2>Liste des types</h2>
+    <ul>
+    {% for at in artist.a_artitTypes.all %}
+        <li>{{ at.type.type }}</li>
+    {% endfor %}
+    </ul>
+
+
 <div><a href="{% url 'catalogue:artist-edit' artist.id %}">Modifier</a></div>
 <form method="post" action="{% url 'catalogue:artist-delete' artist.id %}" 
         onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ?')">

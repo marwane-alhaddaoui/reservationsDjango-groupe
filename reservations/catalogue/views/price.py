@@ -25,3 +25,4 @@ def show(request, price_id):
         'price':price,
         'title':title 
     })
+

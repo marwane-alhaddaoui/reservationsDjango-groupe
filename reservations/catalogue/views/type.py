@@ -25,4 +25,3 @@ def show(request, type_id):
         'type':type,
         'title':title 
     })
-

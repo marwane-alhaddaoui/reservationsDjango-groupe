@@ -25,4 +25,35 @@
 
     </ul>
 
+    <h3>Mes réservations</h3>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if user.reservations.exists %}
+                {% for reservation in user.reservations.all %}
+                    <tr>
+                        <td>{{ reservation.id }}</td>
+                        <td>{{ reservation.booking_date|date:"d/m/Y" }}</td>
+                        <td>{{ reservation.status }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune réservation trouvée.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    
+    <p><code>{{ user.reservations.all }}</code></p>
+
 {% endblock content %}
+
+

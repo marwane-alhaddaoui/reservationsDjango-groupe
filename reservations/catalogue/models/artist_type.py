@@ -1,11 +1,16 @@
 from django.db import models
+from .artist import *
+from .type import *
 
-class ArtisteType(models.Model):
-    artist = models.ForeignKey('Artist', on_delete=models.CASCADE, related_name='artiste_types')
-    type = models.ForeignKey('Type', on_delete=models.CASCADE, related_name='artiste_types')
+class ArtistType(models.Model):
+    artist = models.ForeignKey(Artist, on_delete=models.RESTRICT, 
+		null=False, related_name='a_artistTypes')
+    type = models.ForeignKey(Type, on_delete=models.RESTRICT, 
+		null=False, related_name='t_artistTypes')
 
     def __str__(self):
-        return self.artist.name + ' - ' + self.type.label
+        return f"{self.artist.firstname} {self.artist.lastname} ({self.type.type})"
     
     class Meta:
-        db_table = 'artiste_type'
+        db_table = "artist_type"
+     

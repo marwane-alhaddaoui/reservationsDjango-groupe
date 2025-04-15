@@ -1,57 +1,68 @@
 [
-  {
-    "model": "catalogue.reservation",
-    "pk": 1,
-    "fields": {
-      "booking_date": "2025-01-11T03:21:46.371Z",
-      "status": "en attente",
-      "user": [
-        "anna"
-      ]
-    }
-  },
-  {
-    "model": "catalogue.reservation",
-    "pk": 2,
-    "fields": {
-      "booking_date": "2025-01-11T03:26:39.767Z",
-      "status": "payée",
-      "user": [
-        "admin"
-      ]
-    }
-  },
-  {
-    "model": "catalogue.reservation",
-    "pk": 3,
-    "fields": {
-      "booking_date": "2025-01-11T03:26:39.770Z",
-      "status": "en attente",
-      "user": [
-        "anna"
-      ]
-    }
-  },
-  {
-    "model": "catalogue.reservation",
-    "pk": 4,
-    "fields": {
-      "booking_date": "2025-01-11T03:33:46.150Z",
-      "status": "payée",
-      "user": [
-        "admin"
-      ]
-    }
-  },
-  {
-    "model": "catalogue.reservation",
-    "pk": 5,
-    "fields": {
-      "booking_date": "2025-01-11T03:33:46.154Z",
-      "status": "en attente",
-      "user": [
-        "anna"
-      ]
-    }
+{
+  "model": "catalogue.reservation",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "booking_date": "2025-01-05",
+    "status": "en attente"
   }
+},
+{
+  "model": "catalogue.reservation",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "booking_date": "2025-01-05",
+    "status": "annulÔö£┬«e"
+  }
+},
+{
+  "model": "catalogue.reservation",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "booking_date": "2025-01-05",
+    "status": "payÔö£┬«e"
+  }
+},
+{
+  "model": "catalogue.reservation",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "anna"
+    ],
+    "booking_date": "2025-01-05",
+    "status": "payÔö£┬«e"
+  }
+},
+{
+  "model": "catalogue.reservation",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "booking_date": "2025-01-05",
+    "status": "payÔö£┬«e"
+  }
+},
+{
+  "model": "catalogue.reservation",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "anna"
+    ],
+    "booking_date": "2025-01-05",
+    "status": "en attente"
+  }
+}
 ]
