@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from accounts.forms.UserSignUpForm import UserSignUpForm
 from django.contrib.auth.decorators import login_required
@@ -18,7 +18,10 @@ from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from accounts.models.cart import Cart, CartItem
 from catalogue.models.representation import Representation
-
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
+from django.dispatch import receiver
+from accounts.models.cart import Cart
 
 class UserUpdateView(UserPassesTestMixin, UpdateView):
     model = User
@@ -73,8 +76,24 @@ def delete(request, pk):
         return redirect('home')
 
 
+@login_required
+def user_cart_template_view(request):
+    # Vérifier si l'utilisateur a un panier
+    cart = Cart.objects.filter(user=request.user).first()
+    if not cart:
+        # Si aucun panier n'existe, afficher un message ou une page vide
+        return render(request, 'user/user_cart.html', {'cart': None, 'message': "Votre panier est vide."})
+    
+    # Passer les données du panier au template
+    return render(request, 'user/user_cart.html', {'cart': cart})
 
 
+@receiver(post_save, sender=User)
+def create_cart_for_user(sender, instance, created, **kwargs):
+    if created:
+        Cart.objects.get_or_create(user=instance)
+
+        
 class UserCartView(APIView):
     authentication_classes = [TokenAuthentication]
 

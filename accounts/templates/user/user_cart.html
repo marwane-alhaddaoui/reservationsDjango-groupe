@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Panier</title>
+</head>
+<body>
+    <h1>Mon Panier</h1>
+    {% if cart %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Horaire</th>
+                    <th>Lieu</th>
+                    <th>Quantité</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart.items.all %}
+                <tr>
+                    <td>{{ item.representation.show.title }}</td>
+                    <td>{{ item.representation.schedule }}</td>
+                    <td>{{ item.representation.location.designation }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.price.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><strong>Total :</strong> {{ cart.get_total_price }}</p>
+    {% else %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

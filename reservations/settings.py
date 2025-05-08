@@ -89,16 +89,14 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',  # Nom de la base de données
-        'USER': 'root',  # Utilisateur
-        'PASSWORD': 'MJBzBvaeeHpbFIHKoZWqwHjrFpIHutid',  # Mot de passe
-        'HOST': 'switchyard.proxy.rlwy.net',  # Hôte de la base de données
-        'PORT': '20330',  # Port
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        }
+        'NAME': 'reservations',
+        'USER': 'root',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD',''),
+        'HOST': '127.0.0.1',
+        'PORT': '3307',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
