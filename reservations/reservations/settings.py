@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-4ies4(4ux=ag-e@%b)_mtmt=g1@*qihh+&s^p*y42nbmrf4uba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app','reservations-icc-dev.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [
     "https://reservations-icc.up.railway.app",
