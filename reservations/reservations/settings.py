@@ -32,7 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app','reservations-icc-dev.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://reservations-icc.up.railway.app",
+    "https://reservations-icc.up.railway.app",  'https://reservations-icc-dev.up.railway.app'
 ]
 # Application definition
 
