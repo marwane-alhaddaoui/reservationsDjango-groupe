@@ -32,9 +32,13 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app','reservations-icc-dev.up.railway.app','django-new-dev.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [
+<<<<<<< HEAD:backend/reservations/reservations/settings.py
     "https://reservations-icc.up.railway.app",  
     'https://reservations-icc-dev.up.railway.app',
     'https://django-new-dev.up.railway.app'  # Ajouter cette valeur
+=======
+    "https://reservations-icc.up.railway.app",  'https://reservations-icc-dev.up.railway.app'
+>>>>>>> b7c3ef6 (add dev to CSRF trusted):reservations/reservations/settings.py
 ]
 # Application definition
 
