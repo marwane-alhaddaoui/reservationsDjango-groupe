@@ -1,19 +1,25 @@
 from django.shortcuts import render
 from catalogue.models import Show, Representation
+from catalogue.models import Artist
+
 from django.db.models import Q
 
 def search(request):
-    q = request.GET.get('q', '').strip()
-    shows = []
-    reps = []
-    if q:
-        shows = Show.objects.filter(title__icontains=q)
-        reps  = Representation.objects.filter(
-            Q(show__title__icontains=q) |
-            Q(location__designation__icontains=q)
-        )
-    return render(request, 'search.html', {
-        'query': q,
+    query = request.GET.get('q', '').strip()
+
+    shows = Show.objects.filter(title__icontains=query)
+    representations = Representation.objects.filter(
+        show__title__icontains=query
+    )
+
+    artists = Artist.objects.filter(
+        Q(firstname__icontains=query) |
+        Q(lastname__icontains=query)
+    )
+
+    return render(request, 'search/results.html', {
+        'query': query,
         'shows': shows,
-        'representations': reps,
+        'representations': representations,
+        'artists': artists,
     })

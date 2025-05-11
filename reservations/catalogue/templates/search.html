@@ -35,4 +35,18 @@
   {% else %}
     <p>Aucune représentation trouvée.</p>
   {% endif %}
+   <h2>Artistes</h2>
+  {% if artists %}
+    <ul>
+      {% for artist in artists %}
+        <li>
+          <a href="{% url 'catalogue:artist-show' artist.id %}">
+            {{ artist.firstname }} {{ artist.lastname }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun artiste trouvé.</p>
+  {% endif %}
 {% endblock %}
