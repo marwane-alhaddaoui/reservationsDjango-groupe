@@ -21,5 +21,6 @@ def search(request):
         'query': query,
         'shows': shows,
         'representations': representations,
+
         'artists': artists,
     })
