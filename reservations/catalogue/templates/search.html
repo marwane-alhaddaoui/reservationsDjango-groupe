@@ -3,6 +3,44 @@
 {% block title %}Résultats pour « {{ query }} »{% endblock %}
 
 {% block content %}
+  {# barre de recherche en haut à droite #}
+  <div style="
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+  ">
+    <form 
+      method="get" 
+      action="{% url 'catalogue:search' %}" 
+      style="display: flex; align-items: center;"
+    >
+      <input
+        type="text"
+        name="q"
+        placeholder="Rechercher spectacles ou représentations…"
+        value="{{ query }}"
+        style="
+          padding: 0.4rem 0.6rem;
+          border: 1px solid #ccc;
+          border-radius: 3px 0 0 3px;
+          outline: none;
+        "
+      >
+      <button
+        type="submit"
+        style="
+          padding: 0.4rem 0.6rem;
+          border: 1px solid #ccc;
+          border-left: none;
+          border-radius: 0 3px 3px 0;
+          background: #eee;
+          cursor: pointer;
+        "
+      >🔍</button>
+    </form>
+  </div>
+
   <h1>Recherche : « {{ query }} »</h1>
 
   <h2>Spectacles</h2>
