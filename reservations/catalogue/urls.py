@@ -41,6 +41,9 @@ path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('search/', views.search, name='search'),
 
 
+
+
+
 ]
 
 admin.site.index_title = "Projet Réservations"

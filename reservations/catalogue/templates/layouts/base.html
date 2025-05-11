@@ -46,4 +46,43 @@
         {% block content %}{% endblock %}
     </div>
 </body>
+<style>
+  /* Inline CSS rapide, vous pouvez extraire dans static/css/search.css */
+  .search-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .search-button, .sort-button, .filter-button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: white;
+    cursor: pointer;
+  }
+  .search-button:hover, .sort-button:hover, .filter-button:hover {
+    background-color: #f0f0f0;
+  }
+</style>
+
+<div class="search-container">
+  <form method="get" action="{% url 'catalogue:search' %}">
+    <input
+      type="text"
+      name="q"
+      value="{{ request.GET.q|default_if_none:'' }}"
+      placeholder="Rechercher..."
+      class="search-input"
+    >
+    <button type="submit" class="search-button">🔍</button>
+    <button type="button" class="sort-button">Trier</button>
+    <button type="button" class="filter-button">Filtrer</button>
+  </form>
+</div>
 </html>
