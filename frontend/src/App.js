@@ -7,6 +7,7 @@ import ShowList from "./pages/ShowList";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import PrivateRoute from "./components/PrivateRoute";
+import ArtistList from "./pages/ArtistList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/shows" element={<ShowList />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+            <Route path="/artists" element={<ArtistList />} />
           </Routes>
         </div>
       </Router>

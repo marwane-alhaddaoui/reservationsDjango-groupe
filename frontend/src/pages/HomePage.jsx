@@ -22,6 +22,7 @@ function HomePage() {
 
       <div className="my-4">
         <Link to="/shows" className="btn btn-primary me-2">Voir le catalogue</Link>
+        <Link to="/artists" className="btn btn-secondary me-2">Voir les artistes</Link>
       </div>
 
       <hr className="my-5" />
