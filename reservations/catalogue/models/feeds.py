@@ -16,7 +16,7 @@ class BookableShowFeed(Feed):
 
     def item_link(self, item):
         # Utilisation d'un lien absolu via reverse et build_absolute_uri
-        base_url = 'http://localhost:8000'  # 
+        base_url = 'https://reservationsdjango-groupe-production.up.railway.app/'  # 
         return f"{base_url}{reverse('catalogue:show-show', args=[item.id])}"
 
     def item_description(self, item):

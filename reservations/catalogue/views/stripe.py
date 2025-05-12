@@ -39,8 +39,8 @@ class CreateStripeSessionView(APIView):
                 payment_method_types=['card'],
                 line_items=line_items,
                 mode='payment',
-                success_url='http://localhost:3000/success',
-                cancel_url='http://localhost:3000/cancel',
+                success_url='https://reservationsdjango-react-production.up.railway.app/success',
+                cancel_url='https://reservationsdjango-react-production.up.railway.app/cancel',
             )
             print("Session Stripe créée avec succès :", session.id)
             return JsonResponse({'id': session.id})
