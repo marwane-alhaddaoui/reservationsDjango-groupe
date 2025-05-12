@@ -1,8 +1,7 @@
 from django.urls import path
 from .views import ClearCartView, DeleteCartItemView, LoginView, LogoutView, PaymentSuccessView, PriceListAPIView, RepresentationListAPIView, UpdateCartItemView, UserCartView, UserMetaDetailView, UserReservationsView, UserSignUpView, profile, UserUpdateView, delete
 from .views import check_auth, ChangePasswordView
-from accounts import views
-from django.contrib.auth.views import PasswordChangeView
+
 
 app_name = 'accounts'
 

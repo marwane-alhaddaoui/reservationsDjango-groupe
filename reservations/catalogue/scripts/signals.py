@@ -4,6 +4,8 @@ from django.dispatch import receiver
 from catalogue.models.cart import Cart, CartItem
 from catalogue.models.show import Show
 
+
+##Non utilisé
 @receiver(user_logged_in)
 def merge_cart_on_login(sender, request, user, **kwargs):
     # Récupérer le panier de la session
