@@ -27,10 +27,9 @@ function ShowList() {
           <div key={show.id} className="col-md-4 mb-4">
             <div className="card h-100 shadow-sm">
               <div className="card-body">
-                <h5 className="card-title">{show.title || "Titre non spécifié"}</h5>
-                <p className="card-text"><strong>Date :</strong> {show.date || "Inconnue"}</p>
-                <p className="card-text"><strong>Prix :</strong> {show.price ? show.price + "€" : "Non spécifié"}</p>
-                <p className="card-text"><strong>Lieu :</strong> {show.place || "Inconnu"}</p>
+                <h5 className="card-title">{show.title}</h5>
+                <p><strong>Date :</strong> {show.created_at}</p>
+                <p><strong>Prix :</strong> {show.price ? show.price + "€" : "Non précisé"}</p>
               </div>
             </div>
           </div>

@@ -27,6 +27,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', FrontendAppView.as_view(), name='home'),
+    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
+    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path('api/catalogue/', include('api.catalogue.urls')),
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
