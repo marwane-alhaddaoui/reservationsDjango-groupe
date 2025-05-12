@@ -24,4 +24,3 @@ def show(request, location_id):
         'location':location,
         'title':title 
     })
-

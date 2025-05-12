@@ -1,6 +1,10 @@
 from django.db import models
 import datetime
 
+class TypeManager(models.Manager):
+    def get_by_natural_key(self, price,):
+        return self.get(price=price,)
+
 # Create your models here.
 class Price(models.Model):
     type = models.CharField(max_length=30)

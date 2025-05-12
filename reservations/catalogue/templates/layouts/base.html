@@ -3,87 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Projet réservations - Bienvenue{% endblock %}</title>
-
-    <!-- Un peu de CSS inline pour la barre de nav et la recherche -->
-    <style>
-    .main-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f0f0f0;
-      padding: 10px 20px;
-      margin-bottom: 20px;
-    }
-    .main-nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 15px;
-    }
-    .main-nav li {
-      display: inline;
-    }
-    .search-form {
-      margin: 0;
-    }
-    .search-form input {
-      padding: 5px 8px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-    }
-    .search-form button {
-      padding: 5px 10px;
-      border: none;
-      background: #333;
-      color: white;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-    </style>
 </head>
 <body>
-    <!-- Barre de navigation avec recherche à droite -->
-    <nav class="main-nav">
-      <ul>
+    <nav>
+    <ul>
         <li><a href="{% url 'home' %}">Accueil</a></li>
         <li><a href="{% url 'catalogue:artist-index' %}">Nos artistes</a></li>
         {% if request.user.is_superuser %}
         <li><a href="{% url 'admin:index' %}">Administration</a></li>
         {% endif %}
-      </ul>
-
-      <!-- Formulaire de recherche -->
-      <form class="search-form" action="{% url 'catalogue:search' %}" method="get">
-        <input
-          type="text"
-          name="q"
-          placeholder="Recherche…"
-          value="{{ request.GET.q|default:'' }}"
-          required
-        >
-        <button type="submit">🔍</button>
-      </form>
-    </nav>
-
+    </ul>
+</nav>
     <div class="container">
         <header>
             <div style="float:right">
                 {% if request.user.is_authenticated %}
-                  <p>Bonjour {{ request.user.username }}!</p>
-                  <p><a href="{% url 'accounts:user-profile' %}">Mon profil</a></p>
-                  <form action="{% url 'logout' %}" method="post">
+                <p>Bonjour {{ request.user.username }}!</p>
+                <p><a href="{% url 'accounts:user-profile' %}">Mon profil</a></p>
+            
+                <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Se déconnecter</button>
-                  </form>
+                </form>
                 {% else %}
-                  <p>Vous n'êtes pas connecté.</p>
-                  <p><a href="{% url 'login' %}">Se connecter</a></p>
-                  <p><a href="{% url 'accounts:user-signup' %}">S'inscrire</a></p>
+                <p>Vous n'êtes pas connecté.</p>
+                <p><a href="{% url 'login' %}">Se connecter</a></p>
+                <p><a href="{% url 'accounts:user-signup' %}">S'inscrire</a></p>
                 {% endif %}
+    
             </div>
-        </header>
-
+        </header>    
         <div id="notification">
             {% if messages %}
             <ul class="messages">
@@ -92,8 +41,8 @@
                 {% endfor %}
             </ul>
             {% endif %}
-        </div>
-
+       </div>
+    
         {% block content %}{% endblock %}
     </div>
 </body>

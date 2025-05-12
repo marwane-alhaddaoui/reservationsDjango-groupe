@@ -49,8 +49,8 @@
   "pk": 4,
   "fields": {
     "slug": "espace-delvaux-la-venerie",
-    "designation": "Espace Delvaux / La V├®nerie",
-    "address": "3 rue Grat├¿s",
+    "designation": "Espace Delvaux / La Vienerie",
+    "address": "3 rue Grats",
     "locality": [
       "1170",
       "Watermael-Boistfort"
@@ -95,7 +95,7 @@
   "fields": {
     "slug": "espace-magh",
     "designation": "Espace Magh",
-    "address": "17 rue du Poin├ºon",
+    "address": "17 rue du Pointon",
     "locality": [
       "1000",
       "Bruxelles"
