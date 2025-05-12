@@ -188,7 +188,7 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOWED_ORIGINS = [
-    "reservationsdjango-groupe-production.up.railway.app",
+    "https://reservationsdjango-groupe-production.up.railway.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
