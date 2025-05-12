@@ -409,48 +409,6 @@ def check_auth(request):
     return JsonResponse({"authenticated": True})
 
 
-class LoginView(APIView):
-    def post(self, request):
-        username = request.data.get('username')
-        password = request.data.get('password')
-
-        if not username or not password:
-            return Response({"message": "Nom d'utilisateur et mot de passe requis."}, status=400)
-
-        user = authenticate(username=username, password=password)
-        if user:
-            token, created = Token.objects.get_or_create(user=user)
-            user_meta, _ = UserMeta.objects.get_or_create(user=user)
-            user_meta.is_logged_in = True
-            user_meta.active_token = token.key
-            user_meta.save()
-
-            return Response({
-                "token": token.key,
-                "user": {
-                    "id": user.id,
-                    "username": user.username,
-                    "first_name": user.first_name,
-                    "last_name": user.last_name,
-                    "email": user.email,
-                    
-                }
-            })
-        else:
-            return Response({"message": "Nom d'utilisateur ou mot de passe incorrect."}, status=401)
-
-class LogoutView(APIView):
-    def post(self, request):
-        user = request.user
-        if user.is_authenticated:
-            Token.objects.filter(user=user).delete()
-            user_meta = UserMeta.objects.get(user=user)
-            user_meta.is_logged_in = False
-            user_meta.active_token = None
-            user_meta.save()
-            return Response({"message": "Déconnexion réussie."})
-        return Response({"message": "Utilisateur non authentifié."}, status=401)
-
 class UserMetaDetailView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
