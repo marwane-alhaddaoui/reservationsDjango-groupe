@@ -1,0 +1,52 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Résultats pour « {{ query }} »{% endblock %}
+
+{% block content %}
+  <h1>Recherche : « {{ query }} »</h1>
+
+  <h2>Spectacles</h2>
+  {% if shows %}
+    <ul>
+      {% for show in shows %}
+        <li>
+          <a href="{% url 'catalogue:show-show' show.id %}">
+            {{ show.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun spectacle trouvé.</p>
+  {% endif %}
+
+  <h2>Représentations</h2>
+  {% if representations %}
+    <ul>
+      {% for rep in representations %}
+        <li>
+          {{ rep.schedule|date:"Y-m-d H:i" }}
+          – <a href="{% url 'catalogue:representation-show' rep.id %}">
+            {{ rep.show.title }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucune représentation trouvée.</p>
+  {% endif %}
+   <h2>Artistes</h2>
+  {% if artists %}
+    <ul>
+      {% for artist in artists %}
+        <li>
+          <a href="{% url 'catalogue:artist-show' artist.id %}">
+            {{ artist.firstname }} {{ artist.lastname }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun artiste trouvé.</p>
+  {% endif %}
+{% endblock %}
