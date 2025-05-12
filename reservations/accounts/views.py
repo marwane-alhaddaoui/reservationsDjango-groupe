@@ -411,6 +411,7 @@ def check_auth(request):
 
 class UserMetaDetailView(APIView):
     authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, user_id):
         if request.user.id != user_id:
