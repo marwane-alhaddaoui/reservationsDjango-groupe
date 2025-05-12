@@ -45,7 +45,7 @@
     "fields": {
       "representation": 4,
       "reservation": 2,
-      "price": 5,
+      "price": 1,
       "quantity": 2
     }
   },
@@ -53,7 +53,7 @@
     "model": "catalogue.representationreservation",
     "pk": 6,
     "fields": {
-      "representation": 5,
+      "representation": 4,
       "reservation": 4,
       "price": 3,
       "quantity": 3

@@ -43,7 +43,7 @@
         "model": "catalogue.showprice",
         "pk": 6,
         "fields": {
-          "price": 4,
+          "price": 3,
           "show": 3
         }
       },
@@ -51,7 +51,7 @@
         "model": "catalogue.showprice",
         "pk": 7,
         "fields": {
-          "price": 5,
+          "price": 2,
           "show": 3
         }
       },
