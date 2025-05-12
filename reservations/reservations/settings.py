@@ -30,9 +30,9 @@ SECRET_KEY = 'django-insecure-4ies4(4ux=ag-e@%b)_mtmt=g1@*qihh+&s^p*y42nbmrf4uba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://reservationsdjango-groupe-production.up.railway.app']
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['https://reservationsdjango-groupe-production.up.railway.app']
 # Application definition
 
 
@@ -188,7 +188,7 @@ REST_FRAMEWORK = {
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+    "reservationsdjango-groupe-production.up.railway.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
