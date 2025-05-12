@@ -1,1 +1,1 @@
-web: gunicorn reservationsDjango.wsgi --bind 0.0.0.0:$PORT
+web: gunicorn reservations.wsgi:application
