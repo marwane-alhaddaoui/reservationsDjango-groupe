@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from dotenv import load_dotenv
 import os
 from pathlib import Path
-import pymysql
-pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,12 +27,12 @@ SECRET_KEY = 'django-insecure-4ies4(4ux=ag-e@%b)_mtmt=g1@*qihh+&s^p*y42nbmrf4uba
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app','reservations-icc-dev.up.railway.app']
+ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://reservations-icc.up.railway.app",  'https://reservations-icc-dev.up.railway.app'
-]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
 # Application definition
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,21 +41,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  
+    'django.contrib.syndication',  
 
+    'corsheaders',
     'catalogue',
     'accounts',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # Ensure this is before CommonMiddleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True   # Autoriser toutes les origines (pour le développement uniquement)
 
 ROOT_URLCONF = 'reservations.urls'
 
@@ -89,16 +94,14 @@ load_dotenv()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',  # Nom de la base de données
-        'USER': 'root',  # Utilisateur
-        'PASSWORD': 'MJBzBvaeeHpbFIHKoZWqwHjrFpIHutid',  # Mot de passe
-        'HOST': 'switchyard.proxy.rlwy.net',  # Hôte de la base de données
-        'PORT': '20330',  # Port
-        'OPTIONS': {
-            'charset': 'utf8mb4',
-        }
+        'NAME': 'reservations',
+        'USER': 'root',
+        'PASSWORD': os.getenv('MYSQL_PASSWORD',''),
+        'HOST': '127.0.0.1',
+        'PORT': '3307',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -152,7 +155,6 @@ LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_FILE_PATH = "/tmp/app-messages"  # chemin de votre choix
 
-#...
 
 # REST Framework authentications & parmissions
 # https://www.django-rest-framework.org/api-guide/authentication/
@@ -163,8 +165,7 @@ REST_FRAMEWORK = {
         # Pour l'authentification de base (utile pour Postman/cURL)
         'rest_framework.authentication.BasicAuthentication',
         # Pour l'authentification via Token
-       # 'rest_framework.authentication.TokenAuthentication',
-       'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         # Exige l'authentification pour toutes les requêtes
@@ -172,3 +173,25 @@ REST_FRAMEWORK = {
     ],
 }
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 30,  # Nombre d'éléments par page
+}
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    'content-type',
+    'x-csrftoken',  # Ensure this header is allowed
+]
+
+
+STRIPE_SECRET_KEY = "sk_test_MgvkTWK1jRG3olSRx9B7Mmxo"
+STRIPE_PUBLIC_KEY = "pk_test_HvEeju8Kg8pqDFSjQQyyxGDb"
