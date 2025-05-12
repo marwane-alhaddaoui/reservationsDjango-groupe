@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import ShowList from "./pages/ShowList";
 import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/shows" element={<ShowList />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
           </Routes>
         </div>
       </Router>

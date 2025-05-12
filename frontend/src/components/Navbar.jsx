@@ -28,6 +28,7 @@ function Navbar() {
               </li>
             ) : (
               <li className="nav-item">
+                 <Link className="nav-link" to="/profile">Mon profil</Link>
                 <button className="btn btn-link nav-link" onClick={handleLogout}>
                   Se déconnecter
                 </button>
