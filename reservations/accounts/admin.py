@@ -7,6 +7,7 @@ from catalogue.models.representation import Representation
 from catalogue.models.reservation import Reservation
 from catalogue.models import ArtistType, Show, Review
 from catalogue.models.representation_reservation import RepresentationReservation
+from catalogue.models.artist_show import ArtistShow
 
 # Unregister the default User model
 admin.site.unregister(User)
@@ -64,3 +65,9 @@ class RepresentationReservationAdmin(admin.ModelAdmin):
     list_display = ('representation', 'reservation', 'price', 'quantity')
     list_filter = ('representation', 'price')
     search_fields = ('reservation__user__username', 'representation__show__title')
+
+@admin.register(ArtistShow)
+class ArtistShowAdmin(admin.ModelAdmin):
+    list_display = ('artist', 'show')
+    list_filter = ('artist', 'show')
+    search_fields = ('artist__firstname', 'artist__lastname', 'show__title')
