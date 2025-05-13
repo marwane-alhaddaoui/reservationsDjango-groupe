@@ -8,6 +8,7 @@ from catalogue.models.reservation import Reservation
 from catalogue.models import ArtistType, Show, Review, UserMeta, Location, Locality
 from catalogue.models.representation_reservation import RepresentationReservation
 from catalogue.models.artist_show import ArtistShow
+from reservations.catalogue.models.showprice import ShowPrice
 
 # Unregister the default User model
 admin.site.unregister(User)
@@ -87,3 +88,9 @@ class LocationAdmin(admin.ModelAdmin):
 class LocalityAdmin(admin.ModelAdmin):
     list_display = ('postal_code', 'locality')
     search_fields = ('postal_code', 'locality')
+
+@admin.register(ShowPrice)
+class ShowPriceAdmin(admin.ModelAdmin):
+    list_display = ('show', 'price')
+    search_fields = ('show__title', 'price__type')
+    list_filter = ('price',)
