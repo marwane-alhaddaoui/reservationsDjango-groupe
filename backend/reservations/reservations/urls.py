@@ -63,7 +63,7 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path('admin/', admin.site.urls),
-    re_path(r'^.*$', FrontendAppView.as_view(), name='react-app'),
+     re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
     
 
 ]

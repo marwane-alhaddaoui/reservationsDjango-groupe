@@ -64,24 +64,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'reservations.urls'
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-        BASE_DIR / "reservations" / "frontend",  # <-- React
-        BASE_DIR / "templates"],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+TEMPLATES[0]['DIRS'] = [
+    BASE_DIR / "reservations" / "frontend"  # <-- Répertoire contenant `index.html` après build
 ]
-
 WSGI_APPLICATION = 'reservations.wsgi.application'
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -177,10 +162,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ],
 }
-
 STATICFILES_DIRS = [
-    BASE_DIR / "reservations" / "frontend" / "static"
+    BASE_DIR / "reservations" / "frontend" / "build" / "static"
 ]
-
 
 
