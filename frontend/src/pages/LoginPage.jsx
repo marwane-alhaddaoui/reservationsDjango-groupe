@@ -1,49 +1,61 @@
-import React, { useState } from 'react';
+// src/pages/LoginPage.jsx
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import { loginUser } from '../services/authService';
+import './LoginPage.css';
 
-const LoginPage = () => {
+const API = process.env.REACT_APP_API_URL;
+
+export default function LoginPage() {
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError(null);
+
     try {
-      const data = await loginUser({ username, password });
-      localStorage.setItem('accessToken', data.access);
-      localStorage.setItem('refreshToken', data.refresh);
-      navigate('/profile');
-    } catch (err) {
-      setError(err.message);
+      const res = await fetch(`${API}/token/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password }),
+      });
+      if (!res.ok) {
+        const errData = await res.json();
+        throw new Error(errData.detail || 'Erreur de connexion');
+      }
+      const data = await res.json();
+      login(data);                         // met les tokens dans le contexte + localStorage
+      navigate('/profile', { replace: true }); // redirige vers /profile
+    } catch (e) {
+      setError(e.message);
     }
   };
 
   return (
-    <div className="main-content">
-      <h2>Se connecter</h2>
-      <form onSubmit={handleLogin}>
+    <div className="login-page">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <h2>Connexion</h2>
         <input
           type="text"
-          placeholder="Nom d'utilisateur"
           value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={e => setUsername(e.target.value)}
+          placeholder="Nom d'utilisateur"
           required
-        /><br />
+        />
         <input
           type="password"
-          placeholder="Mot de passe"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={e => setPassword(e.target.value)}
+          placeholder="Mot de passe"
           required
-        /><br />
-        <button type="submit">Connexion</button>
+        />
+        <button type="submit">Se connecter</button>
+        {error && <p className="error">{error}</p>}
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
     </div>
   );
-};
-
-export default LoginPage;
+}

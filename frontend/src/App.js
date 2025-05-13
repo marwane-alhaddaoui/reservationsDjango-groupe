@@ -1,23 +1,48 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
+import ProfilePage from './pages/ProfilePage';
+import { AuthContext } from './context/AuthContext';
 
-const App = () => {
+export default function App() {
+  const { isAuthenticated } = useContext(AuthContext);
+
   return (
     <Router>
       <Navbar />
-      <div style={{ marginLeft: '240px', padding: '20px' }}>
+      <div style={{ marginLeft: '200px', padding: '20px' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+
+          {/* si non connecté, afficher LoginPage ; sinon rediriger vers /profile */}
+          <Route
+            path="/login"
+            element={
+              !isAuthenticated ? <LoginPage /> : <Navigate to="/profile" replace />
+            }
+          />
+
+          {/* idem pour register */}
+          <Route
+            path="/register"
+            element={
+              !isAuthenticated ? <RegisterPage /> : <Navigate to="/profile" replace />
+            }
+          />
+
+          {/* profil protégé */}
+          <Route
+            path="/profile"
+            element={
+              isAuthenticated ? <ProfilePage /> : <Navigate to="/login" replace />
+            }
+          />
+          <Route path="/profile" element={isAuthenticated ? <ProfilePage /> : <Navigate to="/login" replace />}/>
         </Routes>
       </div>
     </Router>
   );
-};
-
-export default App;
+}
