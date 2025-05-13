@@ -32,7 +32,13 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1','reservations-icc.up.railway.app','django-staging-0fc7.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://reservations-icc.up.railway.app",  'https://django-staging-0fc7.up.railway.app'
+    "https://reservations-icc.up.railway.app",  'https://django-staging-0fc7.up.railway.app','https://rainbow-toffee-abf764.netlify.app/'
+]
+
+CORS_ALLOWED_ORIGINS = [
+    'https://reservations-icc.up.railway.app',  # URL de ton backend en production
+    'https://django-staging-0fc7.up.railway.app',  # URL de ton backend de staging
+    'https://rainbow-toffee-abf764.netlify.app',  # URL de ton frontend déployé sur Netlify
 ]
 # Application definition
 
@@ -46,7 +52,8 @@ INSTALLED_APPS = [
 
     'catalogue',
     'accounts',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+      'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'reservations.urls'
