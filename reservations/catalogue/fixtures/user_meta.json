@@ -14,5 +14,14 @@
         "user": 1,
         "langue": "fr"
     }
+},
+{
+    "model": "catalogue.usermeta",
+    "pk": 3,
+    "fields": {
+        "user": 3,
+        "langue": "fr"
+    }
 }
 ]
+

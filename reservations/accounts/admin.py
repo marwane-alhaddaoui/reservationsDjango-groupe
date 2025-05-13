@@ -5,7 +5,7 @@ from catalogue.models.cart import Cart, CartItem
 from catalogue.models.price import Price
 from catalogue.models.representation import Representation
 from catalogue.models.reservation import Reservation
-from catalogue.models import ArtistType, Show, Review
+from catalogue.models import ArtistType, Show, Review, UserMeta
 from catalogue.models.representation_reservation import RepresentationReservation
 from catalogue.models.artist_show import ArtistShow
 
@@ -71,3 +71,8 @@ class ArtistShowAdmin(admin.ModelAdmin):
     list_display = ('artist', 'show')
     list_filter = ('artist', 'show')
     search_fields = ('artist__firstname', 'artist__lastname', 'show__title')
+
+@admin.register(UserMeta)
+class UserMetaAdmin(admin.ModelAdmin):
+    list_display = ('user', 'langue', 'active_token', 'is_logged_in')
+    search_fields = ('user__username', 'langue', 'active_token')

@@ -60,7 +60,7 @@
       "pk": 8,
       "fields": {
         "artist": 6,
-        "show": 5
+        "show": 1
       }
     },
     {
@@ -68,7 +68,7 @@
       "pk": 9,
       "fields": {
         "artist": 3,
-        "show": 6
+        "show": 3
       }
     },
     {
@@ -76,7 +76,7 @@
       "pk": 10,
       "fields": {
         "artist": 4,
-        "show": 6
+        "show": 4
       }
     }
   ]
