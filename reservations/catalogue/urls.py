@@ -11,10 +11,10 @@ from api.catalogue.views.views import ArtistListCreateView, ArtistRetrieveUpdate
 from catalogue.views.show_views import show_detail
 from catalogue.models.feeds import BookableShowFeed 
 from catalogue.views.user_meta_views import user_meta_list
-from catalogue.views.artist_views import ArtistDetailView, artist_list
+from catalogue.views.artist_views import ArtistDetailView, artist_list, ArtistDetailView
 from catalogue.views.representation_views import representation_list
 from catalogue.views.show_ import ShowListAPIView, ShowDetailAPIView
-
+from catalogue.views.review_views import ShowReviewListView, AllShowsReviewsView
 
 
 app_name = 'catalogue'
@@ -61,6 +61,9 @@ urlpatterns = [
     path('api/user-meta/<int:user_id>/', UserMetaDetailView.as_view(), name='user-meta-detail'),
     path('api/create-stripe-session/', CreateStripeSessionView.as_view(), name='create-stripe-session'),
     path('api/artists/<int:pk>/detail/', ArtistDetailView.as_view(), name='artist-detail-api'),
+
+    path('api/shows/<int:show_id>/reviews/', ShowReviewListView.as_view(), name='show-reviews-api'),
+    path('api/shows/reviews/', AllShowsReviewsView.as_view(), name='all-shows-reviews-api'),
 ]
 
 admin.site.index_title = "Projet Réservations"
