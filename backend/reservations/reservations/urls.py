@@ -18,6 +18,7 @@ from django.urls import include, path
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from api.accounts.api_views import RegisterAPI
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -54,6 +55,10 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path('admin/', admin.site.urls),
+        path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/register/', RegisterAPI.as_view(), name='register'),
+
+    path('api/artists/', include('catalogue.api_urls')),  # ou autre fichier routes DRF
 
 
 ]
