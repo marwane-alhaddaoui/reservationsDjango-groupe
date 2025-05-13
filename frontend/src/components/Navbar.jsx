@@ -34,6 +34,11 @@ function Navbar() {
                 </button>
               </li>
             )}
+            {!isLoggedIn && (
+  <li className="nav-item">
+    <Link className="nav-link" to="/register">Créer un compte</Link>
+  </li>
+)}
           </ul>
         </div>
       </div>
