@@ -103,5 +103,98 @@
     "website": "http://www.espacemagh.be",
     "phone": "+32 (0)2/274.05.10"
   }
+},
+{
+  "model": "catalogue.location",
+  "pk": 8,
+  "fields": {
+    "slug": "la-boussole",
+    "designation": "La Boussole",
+    "address": "",
+    "locality": [
+      "1000",
+      "Bruxelles"
+    ],
+    "website": null,
+    "phone": null
+  }
+},
+{
+  "model": "catalogue.location",
+  "pk": 9,
+  "fields": {
+    "slug": "la-commune",
+    "designation": "La Commune",
+    "address": "",
+    "locality": [
+      "1000",
+      "Bruxelles"
+    ],
+    "website": null,
+    "phone": null
+  }
+},
+{
+  "model": "catalogue.location",
+  "pk": 10,
+  "fields": {
+    "slug": "la-cuisine",
+    "designation": "La Cuisine",
+    "address": "",
+    "locality": [
+      "1000",
+      "Bruxelles"
+    ],
+    "website": null,
+    "phone": null
+  }
+},
+{
+  "model": "catalogue.location",
+  "pk": 9,
+  "fields": {
+    "slug": "lake-hall",
+    "designation": "Lake Hall",
+    "address": "456 Lake Road",
+    "locality": ["5000", "Namur"],
+    "website": "https://www.lakehall.com",
+    "phone": "123-456-7891"
+  }
+},
+{
+  "model": "catalogue.location",
+  "pk": 10,
+  "fields": {
+    "slug": "desert-theatre",
+    "designation": "Desert Theatre",
+    "address": "789 Desert Lane",
+    "locality": ["6000", "Charleroi"],
+    "website": "https://www.deserttheatre.com",
+    "phone": "123-456-7892"
+  }
+},
+{
+  "model": "catalogue.location",
+  "pk": 11,
+  "fields": {
+    "slug": "forest-arena",
+    "designation": "Forest Arena",
+    "address": "321 Forest Avenue",
+    "locality": ["7000", "Mons"],
+    "website": "https://www.forestarena.com",
+    "phone": "123-456-7893"
+  }
+},
+{
+  "model": "catalogue.location",
+  "pk": 12,
+  "fields": {
+    "slug": "star-hall",
+    "designation": "Star Hall",
+    "address": "654 Star Street",
+    "locality": ["8000", "Bruges"],
+    "website": "https://www.starhall.com",
+    "phone": "123-456-7894"
+  }
 }
 ]

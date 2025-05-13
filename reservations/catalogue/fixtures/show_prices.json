@@ -20,7 +20,7 @@
         "pk": 3,
         "fields": {
           "price": 3,
-          "show": 1
+          "show": 27
         }
       },
       {
@@ -28,7 +28,7 @@
         "pk": 4,
         "fields": {
           "price": 1,
-          "show": 2
+          "show": 27
         }
       },
       {
@@ -36,39 +36,431 @@
         "pk": 5,
         "fields": {
           "price": 2,
-          "show": 2
+          "show": 5
         }
       },
       {
         "model": "catalogue.showprice",
         "pk": 6,
         "fields": {
-          "price": 3,
-          "show": 3
+          "price": 1,
+          "show": 5
         }
       },
       {
         "model": "catalogue.showprice",
         "pk": 7,
         "fields": {
-          "price": 2,
-          "show": 3
+          "price": 3,
+          "show": 5
         }
       },
       {
         "model": "catalogue.showprice",
         "pk": 8,
         "fields": {
-          "price": 1,
-          "show": 4
+          "price": 2,
+          "show": 6
         }
       },
       {
         "model": "catalogue.showprice",
         "pk": 9,
         "fields": {
+          "price": 1,
+          "show": 6
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 10,
+        "fields": {
           "price": 3,
-          "show": 4
+          "show": 7
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 11,
+        "fields": {
+          "price": 2,
+          "show": 7
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 12,
+        "fields": {
+          "price": 1,
+          "show": 8
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 13,
+        "fields": {
+          "price": 2,
+          "show": 8
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 14,
+        "fields": {
+          "price": 1,
+          "show": 9
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 15,
+        "fields": {
+          "price": 2,
+          "show": 9
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 16,
+        "fields": {
+          "price": 3,
+          "show": 9
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 17,
+        "fields": {
+          "price": 1,
+          "show": 10
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 18,
+        "fields": {
+          "price": 2,
+          "show": 10
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 19,
+        "fields": {
+          "price": 2,
+          "show": 11
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 20,
+        "fields": {
+          "price": 3,
+          "show": 11
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 21,
+        "fields": {
+          "price": 1,
+          "show": 12
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 21,
+        "fields": {
+          "price": 3,
+          "show": 12
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 22,
+        "fields": {
+          "price": 1,
+          "show": 13
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 23,
+        "fields": {
+          "price": 2,
+          "show": 13
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 24,
+        "fields": {
+          "price": 2,
+          "show": 14
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 25,
+        "fields": {
+          "price": 3,
+          "show": 15
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 26,
+        "fields": {
+          "price": 2,
+          "show": 15
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 28,
+        "fields": {
+          "price": 3,
+          "show": 16
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 29,
+        "fields": {
+          "price": 1,
+          "show": 17
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 30,
+        "fields": {
+          "price": 2,
+          "show": 17
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 31,
+        "fields": {
+          "price": 1,
+          "show": 18
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 32,
+        "fields": {
+          "price": 3,
+          "show": 18
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 33,
+        "fields": {
+          "price": 1,
+          "show": 19
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 34,
+        "fields": {
+          "price": 2,
+          "show": 19
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 35,
+        "fields": {
+          "price": 1,
+          "show": 20
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 36,
+        "fields": {
+          "price": 2,
+          "show": 20
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 37,
+        "fields": {
+          "price": 3,
+          "show": 20
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 38,
+        "fields": {
+          "price": 1,
+          "show": 21
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 39,
+        "fields": {
+          "price": 2,
+          "show": 21
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 40,
+        "fields": {
+          "price": 3,
+          "show": 21
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 41,
+        "fields": {
+          "price": 1,
+          "show": 22
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 42,
+        "fields": {
+          "price": 2,
+          "show": 22
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 43,
+        "fields": {
+          "price": 2,
+          "show": 23
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 44,
+        "fields": {
+          "price": 3,
+          "show": 23
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 45,
+        "fields": {
+          "price": 2,
+          "show": 24
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 46,
+        "fields": {
+          "price": 3,
+          "show": 24
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 47,
+        "fields": {
+          "price": 1,
+          "show": 25
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 48,
+        "fields": {
+          "price": 2,
+          "show": 25
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 49,
+        "fields": {
+          "price": 3,
+          "show": 25
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 50,
+        "fields": {
+          "price": 1,
+          "show": 26
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 51,
+        "fields": {
+          "price": 2,
+          "show": 26
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 52,
+        "fields": {
+          "price": 3,
+          "show": 26
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 55,
+        "fields": {
+          "price": 1,
+          "show": 28
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 57,
+        "fields": {
+          "price": 1,
+          "show": 29
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 58,
+        "fields": {
+          "price": 3,
+          "show": 29
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 59,
+        "fields": {
+          "price": 1,
+          "show": 30
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 60,
+        "fields": {
+          "price": 3,
+          "show": 30
+        }
+      },
+      {
+        "model": "catalogue.showprice",
+        "pk": 61,
+        "fields": {
+          "price": 3,
+          "show": 101
         }
       }
 ]

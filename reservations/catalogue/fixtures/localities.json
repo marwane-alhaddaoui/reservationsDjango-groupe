@@ -35,8 +35,48 @@
       "model": "catalogue.locality",
       "pk": 5,
       "fields": {
+        "postal_code": "1860",
+        "locality": "Meise"
+      }
+    },
+    {
+      "model": "catalogue.locality",
+      "pk": 6,
+      "fields": {
         "postal_code": "4000",
+        "locality": "Liège"
+      }
+    },
+    {
+      "model": "catalogue.locality",
+      "pk": 7,
+      "fields": {
+        "postal_code": "5000",
         "locality": "Namur"
+      }
+    },
+    {
+      "model": "catalogue.locality",
+      "pk": 8,
+      "fields": {
+        "postal_code": "6000",
+        "locality": "Charleroi"
+      }
+    },
+    {
+      "model": "catalogue.locality",
+      "pk": 9,
+      "fields": {
+        "postal_code": "7000",
+        "locality": "Mons"
+      }
+    },
+    {
+      "model": "catalogue.locality",
+      "pk": 10,
+      "fields": {
+        "postal_code": "8000",
+        "locality": "Bruges"
       }
     }
 ]
