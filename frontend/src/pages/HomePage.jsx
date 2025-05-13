@@ -1,5 +1,6 @@
 import React from 'react';
 import './HomePage.css';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   return (
@@ -10,10 +11,10 @@ const HomePage = () => {
           placeholder="Rechercher un spectacle..."
           className="search-bar"
         />
-        <div className="auth-buttons">
-          <button className="btn-login">Se connecter</button>
-          <button className="btn-signup">S'inscrire</button>
-        </div>
+       <div className="auth-buttons">
+  <Link to="/login" className="btn-login">Se connecter</Link>
+  <Link to="/register" className="btn-signup">S'inscrire</Link>
+</div>
       </div>
 
       <section className="hero-section">

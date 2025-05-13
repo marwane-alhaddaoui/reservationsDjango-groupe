@@ -1,16 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';  // Importer la page d'accueil
-import Navbar from './components/Navbar';  // Importer la barre de navigation
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
 const App = () => {
   return (
     <Router>
       <Navbar />
-      <div style={{ marginLeft: '200px', padding: '20px' }}>
+      <div style={{ marginLeft: '240px', padding: '20px' }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Ajoute ici d'autres routes si nécessaire */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </div>
     </Router>
