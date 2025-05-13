@@ -64,6 +64,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'reservations.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -177,7 +178,7 @@ REST_FRAMEWORK = {
     ],
 }
 STATICFILES_DIRS = [
-    BASE_DIR / "reservations" / "frontend" / "build" / "static"
+    BASE_DIR / "frontend" / "build" / "static"
 ]
 
 
