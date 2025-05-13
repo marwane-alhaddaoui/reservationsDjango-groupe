@@ -1,8 +1,0 @@
-[builds]
-  [[builds.backend]]
-  path = "backend"
-  builder = "python"  # Utiliser un builder Python pour le backend
-
-  [[builds.frontend]]
-  path = "frontend"
-  builder = "node"   # Utiliser un builder Node.js pour le frontend
