@@ -58,7 +58,7 @@ urlpatterns = [
         path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/register/', RegisterAPI.as_view(), name='register'),
 
-    path('api/artists/', include('catalogue.api_urls')),  # ou autre fichier routes DRF
+    path('api/artists/', include('catalogue.api_urls')),
 
 
 ]

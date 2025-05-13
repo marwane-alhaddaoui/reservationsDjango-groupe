@@ -1,7 +1,15 @@
-# backend/catalogue/api_urls.py
+# backend/reservations/catalogue/api_urls.py
+
 from django.urls import path
-from ..api.catalogue.views import ArtistListAPIView  # à adapter selon ton projet
+# import des classes correctes :
+from ..api.catalogue.views import (
+    ArtistListCreateView,
+    ArtistRetrieveUpdateDestroyView
+)
 
 urlpatterns = [
-    path('', ArtistListAPIView.as_view(), name='artist-list'),
+    # liste + création
+    path('', ArtistListCreateView.as_view(), name='artist-list'),
+    # détails / maj / suppression
+    path('<int:pk>/', ArtistRetrieveUpdateDestroyView.as_view(), name='artist-detail'),
 ]
