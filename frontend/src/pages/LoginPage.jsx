@@ -1,5 +1,4 @@
-// src/pages/LoginPage.jsx
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
@@ -7,31 +6,41 @@ import './LoginPage.css';
 const API = process.env.REACT_APP_API_URL;
 
 export default function LoginPage() {
-  const { login } = useContext(AuthContext);
+  const { isAuthenticated, login } = useContext(AuthContext);
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
+
+  // Redirection automatique si déjà connecté
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/profile', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
-
+    setError('');
     try {
-      const res = await fetch(`${API}/token/`, {
+      const res = await fetch(`${API}/api/token/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: JSON.stringify({ username, password }),
       });
       if (!res.ok) {
-        const errData = await res.json();
-        throw new Error(errData.detail || 'Erreur de connexion');
+        const text = await res.text();
+        throw new Error(text || 'Erreur de connexion');
       }
       const data = await res.json();
-      login(data);                         // met les tokens dans le contexte + localStorage
-      navigate('/profile', { replace: true }); // redirige vers /profile
-    } catch (e) {
-      setError(e.message);
+      login(data);
+      // Redirection après login
+      navigate('/', { replace: true });
+    } catch (err) {
+      setError(err.message);
     }
   };
 
