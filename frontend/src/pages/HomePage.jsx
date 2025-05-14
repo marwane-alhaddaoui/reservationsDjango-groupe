@@ -10,6 +10,10 @@ export default function HomePage() {
   const navigate = useNavigate();
   const [shows, setShows] = useState([]);
 
+  // 🔁 Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const showsPerPage = 4;
+
   useEffect(() => {
     const fetchShows = async () => {
       try {
@@ -29,6 +33,13 @@ export default function HomePage() {
     navigate('/', { replace: true });
   };
 
+  // 🎯 Pagination logic
+  const indexOfLastShow = currentPage * showsPerPage;
+  const indexOfFirstShow = indexOfLastShow - showsPerPage;
+  const currentShows = shows.slice(indexOfFirstShow, indexOfLastShow);
+  const totalPages = Math.ceil(shows.length / showsPerPage);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="home-page">
       {/* Hero */}
@@ -37,13 +48,11 @@ export default function HomePage() {
         <p>Réservez vos places pour les spectacles de votre choix !</p>
       </section>
 
-    
-
       {/* Prochains spectacles */}
       <section className="upcoming-shows">
         <h2>Prochains spectacles</h2>
         <div className="cards-container">
-          {shows.map((show) => (
+          {currentShows.map((show) => (
             <div key={show.id} className="show-card">
               <img
                 src={`https://picsum.photos/seed/${encodeURIComponent(show.title)}/300/200`}
@@ -61,6 +70,41 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <>
+            <div className="pagination">
+              <button
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                ◀
+              </button>
+
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i + 1}
+                  onClick={() => paginate(i + 1)}
+                  className={currentPage === i + 1 ? 'active' : ''}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                ▶
+              </button>
+            </div>
+
+            <p style={{ textAlign: 'center', marginTop: '1rem', color: '#555' }}>
+              Page {currentPage} sur {totalPages}
+            </p>
+          </>
+        )}
       </section>
     </div>
   );
