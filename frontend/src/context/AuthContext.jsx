@@ -7,7 +7,6 @@ export function AuthProvider({ children }) {
     () => localStorage.getItem('access') || null
   );
 
-  // À chaque changement de token, on met à jour le localStorage
   useEffect(() => {
     if (accessToken) {
       localStorage.setItem('access', accessToken);

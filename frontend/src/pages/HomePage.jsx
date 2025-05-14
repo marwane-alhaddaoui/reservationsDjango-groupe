@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import './HomePage.css';
 
@@ -21,22 +21,7 @@ export default function HomePage() {
       </section>
 
       {/* Actions utilisateur */}
-      <section className="auth-actions">
-        {!isAuthenticated ? (
-          <>
-            <Link to="/login" className="btn-auth">
-              Se connecter
-            </Link>
-            <Link to="/register" className="btn-auth">
-              S'inscrire
-            </Link>
-          </>
-        ) : (
-          <button onClick={handleLogout} className="btn-auth">
-            Se déconnecter
-          </button>
-        )}
-      </section>
+    
 
       {/* Prochains spectacles */}
       <section className="upcoming-shows">

@@ -1,55 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import { registerUser } from '../services/authService';
 
-const RegisterPage = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
+export default function RegisterPage() {
+  const { login } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError('');
+
     try {
-      await registerUser({ username, password, email });
-      navigate('/login');
+      const data = await registerUser({ username, email, password });
+
+      // On connecte directement l'utilisateur après inscription réussie
+      login(data);
+
+      // Redirige l'utilisateur vers son profil (par exemple)
+      navigate('/profile');
     } catch (err) {
-      setError(err.message);
+      setError(err.message || 'Erreur lors de l’inscription.');
     }
   };
 
   return (
-    <div className="main-content">
-      <h2>S'inscrire</h2>
+    <div>
       <form onSubmit={handleRegister}>
         <input
           type="text"
-          placeholder="Nom d'utilisateur"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
           required
-        /><br />
+        />
         <input
           type="email"
-          placeholder="Adresse email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
           required
-        /><br />
+        />
         <input
           type="password"
-          placeholder="Mot de passe"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
           required
-        /><br />
-        <button type="submit">Créer un compte</button>
+        />
+        <button type="submit">S'inscrire</button>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p>{error}</p>}
     </div>
   );
-};
-
-export default RegisterPage;
+}
