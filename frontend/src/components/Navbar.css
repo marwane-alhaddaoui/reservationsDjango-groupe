@@ -1,44 +1,76 @@
-/* src/components/Navbar.css */
 .navbar {
-  background-color: #1e1e2f;
-  width: 220px;
-  height: 100vh;
-  position: fixed;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  background-color: #0080ff; /* fond sombre */
+  padding: 10px 20px;
 }
-
 .navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .navbar h2 {
-  color: #fff;
-  text-align: center;
-  font-size: 1.6em;
-  margin-bottom: 30px;
+  color: #FFFFFF; /* titre en blanc */
+  font-size: 1.25rem;
+  margin: 0;
 }
-
 .navbar-menu {
   list-style: none;
-  padding: 0;
+  display: flex;
+  gap: 15px;
   margin: 0;
-  flex-grow: 1;
+  padding: 0;
 }
-
-.navbar-menu li {
-  margin: 15px 0;
-}
-
 .navbar-links {
-  color: #ccc;
+  display: inline-block;
+  color: #E9ECEF; /* liens gris clair */
   text-decoration: none;
-  font-size: 1.1em;
-  transition: color 0.3s;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
-
 .navbar-links:hover {
-  color: #6c5ce7;
+  color: #FFFFFF;
+  background-color: #495057; /* survol plus clair */
+}
+```, couleurs et accent**
+Crée un fichier `Navbar.css` et importe-le dans `Navbar.jsx` :
+
+```css
+.navbar {
+  background-color: #F8F9FA;
+  padding: 10px 20px;
+}
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar h2 {
+  color: #ffffff; /* Accent color sur le titre */
+  font-size: 1.25rem;
+  margin: 0;
+}
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+.navbar-links {
+  display: inline-block;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+.navbar-links:hover {
+  color: #007BFF; /* Accent on hover */
+  background-color: #E9ECEF;
 }

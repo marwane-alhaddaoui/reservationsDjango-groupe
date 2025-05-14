@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import './Navbar.css'; // ou supprime cette ligne si tu utilises Tailwind
+import './Navbar.css';
 
 export default function Navbar() {
   const { isAuthenticated, logout } = useContext(AuthContext);
@@ -16,23 +16,39 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h2>Projet Réservations</h2>
+        <h2>Projet Réservations 🎟️ </h2>
         <ul className="navbar-menu">
           {/* Lien Accueil toujours visible */}
-          <li><Link to="/" className="navbar-links">Accueil</Link></li>
+          <li>
+            <Link to="/" className="navbar-links">
+              🏠 Accueil
+            </Link>
+          </li>
 
           {/* Si pas connecté : Connexion + Inscription */}
           {!isAuthenticated && (
             <>
-              <li><Link to="/login" className="navbar-links">Connexion</Link></li>
-              <li><Link to="/register" className="navbar-links">Inscription</Link></li>
+              <li>
+                <Link to="/login" className="navbar-links">
+                  🔐 Connexion
+                </Link>
+              </li>
+              <li>
+                <Link to="/register" className="navbar-links">
+                  ✏️ Inscription
+                </Link>
+              </li>
             </>
           )}
 
           {/* Si connecté : Profil + Déconnexion */}
           {isAuthenticated && (
             <>
-              <li><Link to="/profile" className="navbar-links">Profil</Link></li>
+              <li>
+                <Link to="/profile" className="navbar-links">
+                  👤 Profil
+                </Link>
+              </li>
               <li>
                 <button
                   onClick={handleLogout}
@@ -44,7 +60,7 @@ export default function Navbar() {
                     padding: 0
                   }}
                 >
-                  Déconnexion
+                  🚪 Déconnexion
                 </button>
               </li>
             </>

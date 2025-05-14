@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import { AuthContext } from './context/AuthContext';
+import './index.css';
 
 export default function App() {
   const { isAuthenticated } = useContext(AuthContext);
