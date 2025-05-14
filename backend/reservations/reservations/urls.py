@@ -9,6 +9,7 @@ from accounts.views import MyTokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 from api.accounts.api_views import RegisterAPI
 from api.profile import profile_view
+from catalogue.views.show_api import ShowListAPIView
 
 urlpatterns = [
     # Page d’accueil classique (template home.html)
@@ -64,6 +65,7 @@ urlpatterns = [
     path('api/artists/', include('catalogue.api_urls')),
     # 5) Infos du profil de l’utilisateur connecté
     path('api/profile/', profile_view, name='api-profile'),
+    path('api/shows/', ShowListAPIView.as_view(), name='api-shows'),
 ]
 
 # Personnalisation du header/footer de l’admin
