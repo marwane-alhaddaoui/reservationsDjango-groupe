@@ -43,28 +43,33 @@ export default function Navbar() {
 
           {/* Si connecté : Profil + Déconnexion */}
           {isAuthenticated && (
-            <>
-              <li>
-                <Link to="/profile" className="navbar-links">
-                  👤 Profil
-                </Link>
-              </li>
-              <li>
-                <button
-                  onClick={handleLogout}
-                  className="navbar-links"
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    cursor: 'pointer',
-                    padding: 0
-                  }}
-                >
-                  🚪 Déconnexion
-                </button>
-              </li>
-            </>
-          )}
+  <>
+    <li>
+      <Link to="/artists" className="navbar-links">
+        🎭 Artistes
+      </Link>
+    </li>
+    <li>
+      <Link to="/profile" className="navbar-links">
+        👤 Profil
+      </Link>
+    </li>
+    <li>
+      <button
+        onClick={handleLogout}
+        className="navbar-links"
+        style={{
+          background: 'none',
+          border: 'none',
+          cursor: 'pointer',
+          padding: 0
+        }}
+      >
+        🚪 Déconnexion
+      </button>
+    </li>
+  </>
+)}
         </ul>
       </div>
     </nav>

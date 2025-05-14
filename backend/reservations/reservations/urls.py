@@ -5,11 +5,8 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
-
+from accounts.views import MyTokenObtainPairView  
+from rest_framework_simplejwt.views import TokenRefreshView
 from api.accounts.api_views import RegisterAPI
 from api.profile import profile_view
 
@@ -58,8 +55,8 @@ urlpatterns = [
     # === API REST (JWT + inscr./profils + catalogue) ===
 
     # 1) Obtenir un couple (refresh, access)
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    # 2) Rafraîchir l’access token
+    path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
+# 2) Rafraîchir l’access token
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # 3) S’inscrire (via ta classe DRF RegisterAPI)
     path('api/register/', RegisterAPI.as_view(), name='register'),

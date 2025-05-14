@@ -11,6 +11,9 @@ from .forms import UserUpdateForm
 from django.contrib.auth import logout
 from accounts.forms.UserUpdateForm import UserUpdateForm
 from django.contrib.auth import login, logout
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import MyTokenObtainPairSerializer
+
 
 
 class UserUpdateView(UserPassesTestMixin, UpdateView):
@@ -64,3 +67,6 @@ def delete(request, pk):
 
         logout(request)
         return redirect('home')
+
+class MyTokenObtainPairView(TokenObtainPairView):
+    serializer_class = MyTokenObtainPairSerializer
