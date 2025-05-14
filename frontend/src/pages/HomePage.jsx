@@ -1,11 +1,28 @@
-import React, { useContext } from 'react';
-import {  useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import './HomePage.css';
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 export default function HomePage() {
   const { isAuthenticated, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [shows, setShows] = useState([]);
+
+  useEffect(() => {
+    const fetchShows = async () => {
+      try {
+        const response = await fetch(`${API_URL}/api/shows/`);
+        const data = await response.json();
+        setShows(data);
+      } catch (error) {
+        console.error('Erreur lors du chargement des spectacles :', error);
+      }
+    };
+
+    fetchShows();
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -20,46 +37,28 @@ export default function HomePage() {
         <p>Réservez vos places pour les spectacles de votre choix !</p>
       </section>
 
-      {/* Actions utilisateur */}
-    
-
       {/* Prochains spectacles */}
       <section className="upcoming-shows">
         <h2>Prochains spectacles</h2>
-        <table className="shows-table">
-          <thead>
-            <tr>
-              <th>Titre</th>
-              <th>Auteur</th>
-              <th>Lieu</th>
-              <th>Prix</th>
-              <th>Réservable</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Le spectacle de la vie</td>
-              <td>John Doe</td>
-              <td>Palais des Arts</td>
-              <td>9,50 €</td>
-              <td>Oui</td>
-            </tr>
-            <tr>
-              <td>Du haut de mon perchoir</td>
-              <td>Smith Durand</td>
-              <td>Grand Palace</td>
-              <td>15,00 €</td>
-              <td>Non</td>
-            </tr>
-            <tr>
-              <td>A voir et à revoir</td>
-              <td>Bob Sull</td>
-              <td>Palais des Arts</td>
-              <td>10,50 €</td>
-              <td>Oui</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="cards-container">
+          {shows.map((show) => (
+            <div key={show.id} className="show-card">
+              <img
+                src={`https://picsum.photos/seed/${encodeURIComponent(show.title)}/300/200`}
+                alt={show.title}
+                className="show-image"
+              />
+              <div className="show-info">
+                <h3>{show.title}</h3>
+                <p className="description">{show.description}</p>
+                <p className="price">Prix : {parseFloat(show.price).toFixed(2)} €</p>
+                <button className="reserve-button" disabled={!show.bookable}>
+                  {show.bookable ? "Réserver" : "Indisponible"}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
