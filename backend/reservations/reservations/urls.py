@@ -19,6 +19,7 @@ from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from api.accounts.api_views import RegisterAPI
+from api.profile import profile_view
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
@@ -59,6 +60,8 @@ urlpatterns = [
     path('api/register/', RegisterAPI.as_view(), name='register'),
 
     path('api/artists/', include('catalogue.api_urls')),
+     path('api/profile/', profile_view, name='api-profile'),
+    path('api/artists/', include('catalogue/api_urls')),
 
 
 ]

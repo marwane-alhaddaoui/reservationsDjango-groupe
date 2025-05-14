@@ -5,6 +5,7 @@ import './Navbar.css'; // ou supprime cette ligne si tu utilises Tailwind
 
 export default function Navbar() {
   const { isAuthenticated, logout } = useContext(AuthContext);
+  console.log('Navbar – isAuthenticated =', isAuthenticated);
   const navigate = useNavigate();
 
   const handleLogout = () => {

@@ -14,8 +14,8 @@ export default function LoginPage() {
 
   // Redirection automatique si déjà connecté
   useEffect(() => {
-    if (isAuthenticated) {
-      navigate('/profile', { replace: true });
+  if (isAuthenticated) {
+     navigate('/', { replace: true });
     }
   }, [isAuthenticated, navigate]);
 
