@@ -520,3 +520,33 @@ class UserDetailView(APIView):
                 "email": request.user.email,
             }
         })
+    
+
+class UserRegistrationView(APIView):
+    def post(self, request):
+        data = request.data
+
+        # Validate required fields
+        required_fields = ['username', 'password', 'email', 'first_name', 'last_name']
+        for field in required_fields:
+            if field not in data:
+                return Response({"error": f"{field} is required."}, status=400)
+
+        # Check if username or email already exists
+        if User.objects.filter(username=data['username']).exists():
+            return Response({"error": "Username already exists."}, status=400)
+        if User.objects.filter(email=data['email']).exists():
+            return Response({"error": "Email already exists."}, status=400)
+
+        # Create the user
+        try:
+            user = User.objects.create_user(
+                username=data['username'],
+                password=data['password'],
+                email=data['email'],
+                first_name=data['first_name'],
+                last_name=data['last_name']
+            )
+            return Response({"message": "User registered successfully.", "user_id": user.id}, status=201)
+        except Exception as e:
+            return Response({"error": str(e)}, status=500)
