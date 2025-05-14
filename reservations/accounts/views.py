@@ -489,3 +489,34 @@ class ChangePasswordView(APIView):
         user.save()
 
         return Response({"message": "Mot de passe changé avec succès."}, status=200)
+    
+
+
+class UserDetailView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def patch(self, request):
+        data = request.data
+
+        # Update fields in the auth_user table (User model)
+        if 'first_name' in data:
+            request.user.first_name = data['first_name']
+        if 'last_name' in data:
+            request.user.last_name = data['last_name']
+        if 'email' in data:
+            request.user.email = data['email']
+
+        # Save the updated user information
+        request.user.save()
+
+        return Response({
+            "message": "Informations mises à jour avec succès.",
+            "user": {
+                "id": request.user.id,
+                "username": request.user.username,
+                "first_name": request.user.first_name,
+                "last_name": request.user.last_name,
+                "email": request.user.email,
+            }
+        })

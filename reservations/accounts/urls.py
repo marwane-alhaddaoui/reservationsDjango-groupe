@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ClearCartView, DeleteCartItemView, LoginView, LogoutView, PaymentSuccessView, PriceListAPIView, RepresentationListAPIView, UpdateCartItemView, UserCartView, UserMetaDetailView, UserReservationsView, UserSignUpView, profile, UserUpdateView, delete
+from .views import ClearCartView, DeleteCartItemView, LoginView, LogoutView, PaymentSuccessView, PriceListAPIView, RepresentationListAPIView, UpdateCartItemView, UserCartView, UserDetailView, UserMetaDetailView, UserReservationsView, UserSignUpView, profile, UserUpdateView, delete
 from .views import check_auth, ChangePasswordView
 
 
@@ -25,4 +25,5 @@ urlpatterns = [
     path('api/prices/', PriceListAPIView.as_view(), name='price-list'),
     path('api/representations/', RepresentationListAPIView.as_view(), name='representation-list'),
     path('api/change-password/', ChangePasswordView.as_view(), name='change-password'),
+    path('api/user-detail/', UserDetailView.as_view(), name='user-detail'),
 ]
