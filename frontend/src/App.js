@@ -22,7 +22,7 @@ export default function App() {
           <Route
             path="/login"
             element={
-              !isAuthenticated ? <LoginPage /> : <Navigate to="/profile" replace />
+              !isAuthenticated ? <LoginPage /> : <Navigate to="/" replace />
             }
           />
 
@@ -30,15 +30,7 @@ export default function App() {
           <Route
             path="/register"
             element={
-              !isAuthenticated ? <RegisterPage /> : <Navigate to="/profile" replace />
-            }
-          />
-
-          {/* profil protégé */}
-          <Route
-            path="/profile"
-            element={
-              isAuthenticated ? <ProfilePage /> : <Navigate to="/login" replace />
+              !isAuthenticated ? <RegisterPage /> : <Navigate to="/" replace />
             }
           />
           <Route path="/profile" element={isAuthenticated ? <ProfilePage /> : <Navigate to="/login" replace />}/>

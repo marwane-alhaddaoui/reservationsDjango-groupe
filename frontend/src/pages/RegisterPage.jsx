@@ -18,12 +18,14 @@ export default function RegisterPage() {
 
     try {
       const data = await registerUser({ username, email, password });
+      console.log('🚀 Données reçues après inscription :', data);
 
       // On connecte directement l'utilisateur après inscription réussie
       login(data);
 
+      //window.location.href = '/home';
       // Redirige l'utilisateur vers son profil (par exemple)
-      navigate('/profile');
+      navigate('/');
     } catch (err) {
       setError(err.message || 'Erreur lors de l’inscription.');
     }
