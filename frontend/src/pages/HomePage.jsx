@@ -6,7 +6,7 @@ import './HomePage.css';
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default function HomePage() {
-  const { isAuthenticated, logout } = useContext(AuthContext);
+  const {logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [shows, setShows] = useState([]);
 
