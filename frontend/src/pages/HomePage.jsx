@@ -37,6 +37,15 @@ export default function HomePage() {
         <p>Réservez vos places pour les spectacles de votre choix !</p>
       </section>
 
+      {/* Déconnexion */}
+      {isAuthenticated && (
+        <div style={{ textAlign: 'right', marginBottom: '1rem' }}>
+          <button onClick={handleLogout} className="reserve-button">
+            Se déconnecter
+          </button>
+        </div>
+      )}
+
       {/* Prochains spectacles */}
       <section className="upcoming-shows">
         <h2>Prochains spectacles</h2>
