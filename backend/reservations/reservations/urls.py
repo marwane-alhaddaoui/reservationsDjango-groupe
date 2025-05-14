@@ -1,32 +1,30 @@
-"""reservations URL Configuration
+# backend/reservations/urls.py
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+
 from api.accounts.api_views import RegisterAPI
 from api.profile import profile_view
 
 urlpatterns = [
+    # Page d’accueil classique (template home.html)
     path('', TemplateView.as_view(template_name='home.html'), name='home'),
+
+    # Authentification Django « classique » (login, logout, password reset)
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+
+    # URLs de l’app « catalogue » (front office)
     path('catalogue/', include('catalogue.urls')),
 
+    # Admin site et password reset
     path(
         "admin/password_reset/",
         auth_views.PasswordResetView.as_view(
@@ -56,16 +54,22 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path('admin/', admin.site.urls),
-        path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+
+    # === API REST (JWT + inscr./profils + catalogue) ===
+
+    # 1) Obtenir un couple (refresh, access)
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # 2) Rafraîchir l’access token
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # 3) S’inscrire (via ta classe DRF RegisterAPI)
     path('api/register/', RegisterAPI.as_view(), name='register'),
-
+    # 4) Liste et création d’artistes (GET POST)
     path('api/artists/', include('catalogue.api_urls')),
-     path('api/profile/', profile_view, name='api-profile'),
-    path('api/artists/', include('catalogue/api_urls')),
-
-
+    # 5) Infos du profil de l’utilisateur connecté
+    path('api/profile/', profile_view, name='api-profile'),
 ]
 
+# Personnalisation du header/footer de l’admin
 admin.site.index_title = "Projet Réservations"
 admin.site.index_header = "Projet Réservations HEADER"
 admin.site.site_title = "Spectacles"
