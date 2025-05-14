@@ -28,10 +28,6 @@ export default function HomePage() {
     fetchShows();
   }, []);
 
-  const handleLogout = () => {
-    logout();
-    navigate('/', { replace: true });
-  };
 
   // 🎯 Pagination logic
   const indexOfLastShow = currentPage * showsPerPage;
