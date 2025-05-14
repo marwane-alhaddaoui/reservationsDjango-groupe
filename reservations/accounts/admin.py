@@ -8,7 +8,7 @@ from catalogue.models.reservation import Reservation
 from catalogue.models import ArtistType, Show, Review, UserMeta, Location, Locality
 from catalogue.models.representation_reservation import RepresentationReservation
 from catalogue.models.artist_show import ArtistShow
-from reservations.catalogue.models.showprice import ShowPrice
+from catalogue.models.showprice import ShowPrice
 
 # Unregister the default User model
 admin.site.unregister(User)
