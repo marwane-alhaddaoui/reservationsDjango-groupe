@@ -1,11 +1,41 @@
 /* Reset et typographie */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-family: 'Inter', sans-serif; font-size: 16px; line-height: 1.5; }
-body { background-color: #F7F7F7; color: #111111; }
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+body {
+  background-color: #F0F2F5;
+  color: #333333;
+}
+
+/* Variables globales */
+:root {
+  --color-primary: #007BFF;
+  --color-muted:   #666666;
+  --bg-white:      #FFFFFF;
+  --border:        #dddddd;
+  --radius:        4px;
+  --spacing:       8px;
+}
 
 /* Liens */
-a { color: #3B82F6; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
 /* Container central */
-.container { max-width: 1200px; margin: 0 auto; padding: 16px; }
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--spacing) * 2);
+}

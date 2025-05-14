@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #0080ff; /* fond sombre */
+  background-color: #343A40; /* fond sombre */
   padding: 10px 20px;
 }
 .navbar-container {
@@ -33,44 +33,4 @@
 .navbar-links:hover {
   color: #FFFFFF;
   background-color: #495057; /* survol plus clair */
-}
-```, couleurs et accent**
-Crée un fichier `Navbar.css` et importe-le dans `Navbar.jsx` :
-
-```css
-.navbar {
-  background-color: #F8F9FA;
-  padding: 10px 20px;
-}
-.navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.navbar h2 {
-  color: #ffffff; /* Accent color sur le titre */
-  font-size: 1.25rem;
-  margin: 0;
-}
-.navbar-menu {
-  list-style: none;
-  display: flex;
-  gap: 15px;
-  margin: 0;
-  padding: 0;
-}
-.navbar-links {
-  display: inline-block;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.9rem;
-  padding: 5px 10px;
-  border-radius: 4px;
-  transition: color 0.2s ease;
-}
-.navbar-links:hover {
-  color: #007BFF; /* Accent on hover */
-  background-color: #E9ECEF;
 }

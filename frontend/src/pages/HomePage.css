@@ -1,6 +1,6 @@
 /* Conteneur principal */
 .home-page {
-  background-color: #ffffff; /* léger gris en fond */
+  background-color: #F0F2F5; /* léger gris en fond */
   color: #333333;
   padding: 20px;
   font-family: Arial, sans-serif;
@@ -10,7 +10,7 @@
 .hero-section {
   text-align: center;
   margin-bottom: 20px;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   padding: 20px;
   border-radius: 6px;
 }
