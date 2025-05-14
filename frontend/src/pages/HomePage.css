@@ -133,3 +133,24 @@
   color: white;
   font-weight: bold;
 }
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+}
