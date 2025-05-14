@@ -16,12 +16,12 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h2>Projet Réservations 🎟️ </h2>
+        <h2>Projet Réservations </h2>
         <ul className="navbar-menu">
           {/* Lien Accueil toujours visible */}
           <li>
             <Link to="/" className="navbar-links">
-              🏠 Accueil
+               Accueil
             </Link>
           </li>
 
@@ -30,12 +30,12 @@ export default function Navbar() {
             <>
               <li>
                 <Link to="/login" className="navbar-links">
-                  🔐 Connexion
+                   Connexion
                 </Link>
               </li>
               <li>
                 <Link to="/register" className="navbar-links">
-                  ✏️ Inscription
+                  Inscription
                 </Link>
               </li>
             </>
@@ -60,7 +60,7 @@ export default function Navbar() {
                     padding: 0
                   }}
                 >
-                  🚪 Déconnexion
+                   Déconnexion
                 </button>
               </li>
             </>
