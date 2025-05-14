@@ -15,8 +15,8 @@ try {
   const token = localStorage.getItem('access');
   if (token) {
     const payload = JSON.parse(atob(token.split('.')[1]));
-    console.log('🧾 Payload JWT =', payload); // ← Regarde bien dans la console
-    isAdmin = payload.username === 'admin';
+    isAdmin = payload.is_staff === true;
+     console.log('🧾 Payload JWT =', payload); // ← Regarde bien dans la console
   }
 } catch (err) {
   console.error('Erreur JWT :', err);
