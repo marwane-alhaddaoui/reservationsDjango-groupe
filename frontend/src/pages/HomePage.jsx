@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import './HomePage.css';
@@ -6,8 +6,6 @@ import './HomePage.css';
 const API_URL = process.env.REACT_APP_API_URL;
 
 export default function HomePage() {
-  const {logout } = useContext(AuthContext);
-  const navigate = useNavigate();
   const [shows, setShows] = useState([]);
 
   // 🔁 Pagination
