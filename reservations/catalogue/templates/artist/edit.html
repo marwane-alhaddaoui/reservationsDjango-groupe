@@ -5,6 +5,8 @@
 {% block content %}
 <h2>Modifier un artiste</h2>
 
+<p><strong>Troupe actuelle :</strong> {{ artist.troupe.name if artist.troupe else "Non affilié" }}</p>
+
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}

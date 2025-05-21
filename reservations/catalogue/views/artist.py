@@ -54,15 +54,21 @@ def edit(request, artist_id):
     # pass the object as instance in form
     form = ArtistForm(request.POST or None, instance=artist)
 
-    if request.method == 'POST':  # TODO http_override doesn't work
-        # save the data from the form and
-        # redirect to detail_view
+    if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            # Save the artist form
+            artist = form.save(commit=False)
+
+            # Handle troupe assignment
+            troupe_id = request.POST.get('troupe')
+            if troupe_id:
+                artist.troupe = Troupe.objects.get(id=troupe_id)
+            else:
+                artist.troupe = None
+
+            artist.save()
             messages.success(request, "Artiste modifié avec succès.")
-            return render(request, "artist/show.html", {
-                'artist': artist,
-            })
+            return redirect('catalogue:artist-show', artist_id=artist.id)
         else:
             messages.error(request, "Échec de la modification de l'artiste !")
 
