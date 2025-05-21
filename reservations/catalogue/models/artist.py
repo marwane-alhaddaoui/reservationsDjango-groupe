@@ -37,6 +37,13 @@ class Artist(models.Model):
 
     def natural_key(self):
         return (self.firstname, self.lastname)
+    
+    def save(self, *args, **kwargs):
+        if not self.troupe:
+            from catalogue.models.troupe import Troupe
+            non_affilie, created = Troupe.objects.get_or_create(name="Non affilié")
+            self.troupe = non_affilie
+        super().save(*args, **kwargs)
 
 def artist_list(request):
     artists = Artist.objects.all().values('id', 'firstname', 'lastname')

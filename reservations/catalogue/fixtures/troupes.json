@@ -1,0 +1,82 @@
+[
+    {
+        "model": "catalogue.troupe",
+        "pk": 1,
+        "fields": {
+            "name": "Troupe A",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/2174/2174109.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 2,
+        "fields": {
+            "name": "Troupe B",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 3,
+        "fields": {
+            "name": "Troupe C",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 4,
+        "fields": {
+            "name": "Troupe D",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 5,
+        "fields": {
+            "name": "Troupe E",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 6,
+        "fields": {
+            "name": "Troupe F",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 7,
+        "fields": {
+            "name": "Troupe G",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 8,
+        "fields": {
+            "name": "Troupe H",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 9,
+        "fields": {
+            "name": "Troupe I",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    },
+    {
+        "model": "catalogue.troupe",
+        "pk": 10,
+        "fields": {
+            "name": "Troupe J",
+            "logo_url": "https://cdn-icons-png.flaticon.com/256/1301/1301626.png"
+        }
+    }
+]
