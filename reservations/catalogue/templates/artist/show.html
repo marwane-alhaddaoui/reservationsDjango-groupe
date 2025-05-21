@@ -11,6 +11,9 @@
     {% endfor %}
     </ul>
 
+<h2>Troupe</h2>
+<p><strong>Troupe actuelle :</strong> {{ artist.troupe.name if artist.troupe else "Non affilié" }}</p>
+
 
 <div><a href="{% url 'catalogue:artist-edit' artist.id %}">Modifier</a></div>
 <form method="post" action="{% url 'catalogue:artist-delete' artist.id %}" 
