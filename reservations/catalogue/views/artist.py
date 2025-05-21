@@ -5,6 +5,7 @@ from catalogue.forms.ArtistForm import ArtistForm
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from catalogue.models.troupe import Troupe
 
 # Create your views here.
 
@@ -65,9 +66,11 @@ def edit(request, artist_id):
         else:
             messages.error(request, "Échec de la modification de l'artiste !")
 
+    troupes = Troupe.objects.all()
     return render(request, 'artist/edit.html', {
         'form': form,
         'artist': artist,
+        'troupes': troupes,
     })
 
 
