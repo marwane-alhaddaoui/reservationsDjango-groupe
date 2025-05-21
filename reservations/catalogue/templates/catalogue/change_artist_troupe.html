@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Changer la troupe de l'artiste</h1>
+  <p><strong>Artiste :</strong> {{ artist.name }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </form>
+
+  <a href="{% url 'artist-detail' artist.id %}" class="btn btn-secondary mt-3">Annuler</a>
+{% endblock %}

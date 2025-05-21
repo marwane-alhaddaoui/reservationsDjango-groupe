@@ -15,7 +15,7 @@ from catalogue.views.artist_views import ArtistDetailView, artist_list, ArtistDe
 from catalogue.views.representation_views import representation_list
 from catalogue.views.show_ import ShowListAPIView, ShowDetailAPIView
 from catalogue.views.review_views import ShowReviewListView, AllShowsReviewsView
-from .views.troupe_views import manage_troupe
+from .views.troupe_views import manage_troupe, change_artist_troupe
 
 
 app_name = 'catalogue'
@@ -66,6 +66,7 @@ urlpatterns = [
     path('api/shows/<int:show_id>/reviews/', ShowReviewListView.as_view(), name='show-reviews-api'),
     path('api/shows/reviews/', AllShowsReviewsView.as_view(), name='all-shows-reviews-api'),
     path('artist/<int:artist_id>/troupe/', manage_troupe, name='artist-troupe'),
+    path('artist/<int:artist_id>/change-troupe/', change_artist_troupe, name='change-artist-troupe'),
 ]
 
 admin.site.index_title = "Projet Réservations"

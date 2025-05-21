@@ -13,6 +13,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import './App.css'; // Importer les styles personnalisés
 import Success from './pages/Success';
 import Cancel from './pages/Cancel';
+import ArtistTroupe from './components/ArtistTroupe';
 
 function App() {
     const [hasItemsInCart, setHasItemsInCart] = useState(false);
@@ -114,8 +115,10 @@ function App() {
                         <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
                         <Route path="/login" element={user ? <Navigate to="/profile" /> : <Login onLoginSuccess={setUser} />} />
                         <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
-                         
-                         {/* Autres routes */}
+                        {user?.is_staff && (
+                            <Route path="/artist-troupe" element={<ArtistTroupe />} />
+                        )}
+                        {/* Autres routes */}
                         <Route path="/success" element={<Success />} />
                         <Route path="/cancel" element={<Cancel />} />
                     </Routes>

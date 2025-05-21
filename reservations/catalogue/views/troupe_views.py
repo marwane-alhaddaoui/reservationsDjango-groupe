@@ -5,6 +5,11 @@ from rest_framework import status
 from django.contrib.auth.decorators import user_passes_test
 from catalogue.models.artist import Artist
 from catalogue.models.troupe import Troupe
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from ..forms.TroupeAssignmentForm import TroupeAssignmentForm
 
 # Helper function to check if the user is staff
 def is_staff_user(user):
@@ -44,3 +49,19 @@ def manage_troupe(request, artist_id):
         artist.troupe = troupe
         artist.save()
         return Response({"message": "Troupe assigned successfully to the artist."})
+
+@user_passes_test(lambda u: u.is_staff)
+@login_required
+def change_artist_troupe(request, artist_id):
+    artist = get_object_or_404(Artist, id=artist_id)
+
+    if request.method == 'POST':
+        form = TroupeAssignmentForm(request.POST)
+        if form.is_valid():
+            artist.troupe = form.cleaned_data['troupe']
+            artist.save()
+            return HttpResponseRedirect(reverse('artist-detail', args=[artist_id]))
+    else:
+        form = TroupeAssignmentForm(initial={'troupe': artist.troupe})
+
+    return render(request, 'catalogue/change_artist_troupe.html', {'form': form, 'artist': artist})
