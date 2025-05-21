@@ -12,7 +12,15 @@
     </ul>
 
 <h2>Troupe</h2>
-<p><strong>Troupe actuelle :</strong> {{ artist.troupe.name if artist.troupe else "Non affilié" }}</p>
+<p>
+    <strong>Troupe actuelle :</strong> 
+    {% if artist.troupe %}
+        <img src="{{ artist.troupe.logo_url }}" alt="{{ artist.troupe.name }}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+        {{ artist.troupe.name }}
+    {% else %}
+        Non affilié
+    {% endif %}
+</p>
 
 
 <div><a href="{% url 'catalogue:artist-edit' artist.id %}">Modifier</a></div>
