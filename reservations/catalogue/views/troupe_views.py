@@ -60,7 +60,7 @@ def change_artist_troupe(request, artist_id):
         if form.is_valid():
             artist.troupe = form.cleaned_data['troupe']
             artist.save()
-            return HttpResponseRedirect(reverse('artist-detail', args=[artist.id]))
+            return HttpResponseRedirect(reverse('artist-detail-api', kwargs={'pk': artist.id}))
     else:
         form = TroupeAssignmentForm(initial={'troupe': artist.troupe})
 
