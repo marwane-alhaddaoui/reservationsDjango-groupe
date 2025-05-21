@@ -14,3 +14,4 @@ from .artist_type_show import *
 from .showprice import * 
 from .representation_reservation import *
 from .artist_show import *
+from .troupe import *

@@ -14,9 +14,9 @@ class Artist(models.Model):
     shows = models.ManyToManyField(Show, related_name='artists', through='ArtistShow')  # Ajout de la relation Many-to-Many
     troupe = models.ForeignKey(
         "catalogue.Troupe",
-        on_delete=models.PROTECT,  # Hold deletion of the Troupe if Artists are associated
+        on_delete=models.PROTECT,  
         related_name="artists",
-        null=True,  # Allow an Artist to exist without a Troupe
+        null=True,  
         blank=True
     )
     
@@ -28,7 +28,6 @@ class Artist(models.Model):
     
     class Meta:
         db_table = "artists"
-        managed = False
         constraints = [
             models.UniqueConstraint(
                 fields=["firstname", "lastname"],
