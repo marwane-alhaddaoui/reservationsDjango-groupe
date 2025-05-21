@@ -12,6 +12,13 @@ class Artist(models.Model):
     firstname = models.CharField(max_length=60)
     lastname = models.CharField(max_length=60)
     shows = models.ManyToManyField(Show, related_name='artists', through='ArtistShow')  # Ajout de la relation Many-to-Many
+    troupe = models.ForeignKey(
+        "catalogue.Troupe",
+        on_delete=models.PROTECT,  # Hold deletion of the Troupe if Artists are associated
+        related_name="artists",
+        null=True,  # Allow an Artist to exist without a Troupe
+        blank=True
+    )
     
 
     objects = ArtistManager()
