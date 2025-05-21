@@ -8,6 +8,19 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
+
+    <div class="form-group">
+        <label for="troupe">Troupe</label>
+        <select id="troupe" name="troupe" class="form-control">
+            <option value="">Sélectionnez une troupe</option>
+            {% for troupe in troupes %}
+                <option value="{{ troupe.id }}" {% if troupe.id == artist.troupe.id %}selected{% endif %}>
+                    {{ troupe.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
     <button type="submit">Modifier</button>
     <a href="{% url 'catalogue:artist-show' artist.id %}">Annuler</a>
 </form>
