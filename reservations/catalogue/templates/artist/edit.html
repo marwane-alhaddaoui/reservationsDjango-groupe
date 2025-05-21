@@ -5,8 +5,6 @@
 {% block content %}
 <h2>Modifier un artiste</h2>
 
-<p><strong>Troupe actuelle :</strong> {{ artist.troupe.name if artist.troupe else "Non affilié" }}</p>
-
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -14,7 +12,7 @@
     <div class="form-group">
         <label for="troupe">Troupe</label>
         <select id="troupe" name="troupe" class="form-control">
-            <option value="">Sélectionnez une troupe</option>
+            <option value="">Sélectionnez une troupe</option>s
             {% for troupe in troupes %}
                 <option value="{{ troupe.id }}" {% if troupe.id == artist.troupe.id %}selected{% endif %}>
                     {{ troupe.name }}
